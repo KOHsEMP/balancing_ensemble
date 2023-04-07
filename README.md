@@ -3,6 +3,10 @@
 ## Dependencies
 
 
+## Algorithms setting to create component predictors
+
+
+
 ## How to execute our experiments
 
 ### Comparison of Performance Experiment
