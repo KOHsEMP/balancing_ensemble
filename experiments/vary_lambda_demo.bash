@@ -1,5 +1,5 @@
 #!/bin/bash
 
-python vary_lambda.py --dataset mnist --n_components 5 --n_experiments 5 --n_experiments 5 --each_model_data 200 \
+python vary_lambda.py --dataset mnist --n_components 5 --n_experiments 5 --each_model_data 200 \
 			--ensemble_labeled_size 500 \
 			--labeled_classes 0 1 2 3 4 5 6 7 8 9
