@@ -5,11 +5,16 @@ scikit-learn==1.0.2
 
 ## Algorithms setting to create component predictors
 The hyperparameter settings of the component predictors used in the experiments are shown below.
-The values not shown are the default values in scikit learn.
-* Logistic Regression
-* SVM
-* K nearest neighbours
-* 
+The values not shown are the default values in `scikit-learn 1.0.2`.
+
+* Logistic Regression : `LogisticRegression`
+  * solver="lbfgs", multi_class='auto'
+* Support Vector Machine : `SVC`
+  * kernel='rbf', gamma='auto', probability=True
+* K Nearest Neighbours : `KNeighborsClassifier`
+  * n_neighbors is the number of classes of each dataset
+* Gaussian Naive Bayes : `GaussianNB` 
+* Random Forest: `RandomForestClassifier`
 
 
 
