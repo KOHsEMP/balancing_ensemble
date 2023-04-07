@@ -1,9 +1,15 @@
 # balancing_ensemble
 
 ## Dependencies
-
+scikit-learn==1.0.2
 
 ## Algorithms setting to create component predictors
+The hyperparameter settings of the component predictors used in the experiments are shown below.
+The values not shown are the default values in scikit learn.
+* Logistic Regression
+* SVM
+* K nearest neighbours
+* 
 
 
 
