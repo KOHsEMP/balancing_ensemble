@@ -36,7 +36,7 @@ balancing_ensemble/
 * Once the program is executed, an output directory is created under balancing_ensemble/ and the results are stored there.
 * Each data must be downloaded from [UCI repository](https://archive.ics.uci.edu/ml/index.php) or [OpenML](https://www.openml.org/).
 
-### Datasets
+### Datasets Download
 * [MNIST](https://www.openml.org/search?type=data&status=active&id=554)
 * [Fashion-MNIST](https://www.openml.org/search?type=data&status=active&id=40996)
 * [Kuzushiji-MNIST](https://www.openml.org/search?type=data&status=active&id=41982)
