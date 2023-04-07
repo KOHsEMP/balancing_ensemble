@@ -1,4 +1,4 @@
-# balancing_ensemble
+# Balancing Selection adn Diversity in Ensemble Learning with Exponential Mixture Model
 
 ## Dependencies
 
@@ -50,10 +50,10 @@ balancing_ensemble/
        ├ ...
 ```
 
-* Once the program is executed, an output directory is created under balancing_ensemble/ and the results are stored there.
+* Once the program is executed, an output directory is created under `balancing_ensemble/output/` and the results are stored there.
 * Each data must be downloaded from [UCI repository](https://archive.ics.uci.edu/ml/index.php) or [OpenML](https://www.openml.org/).
 
-## Datasets Download
+## Datasets Download Links
 * [MNIST](https://www.openml.org/search?type=data&status=active&id=554)
 * [Fashion-MNIST](https://www.openml.org/search?type=data&status=active&id=40996)
 * [Kuzushiji-MNIST](https://www.openml.org/search?type=data&status=active&id=41982)
@@ -61,35 +61,109 @@ balancing_ensemble/
 * [volkert](https://www.openml.org/search?type=data&status=active&id=41166&sort=runs)
 * [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing)
 
-## Comparison of Performance Experiment
 
+## Verification of Conjectures
+
+This experiment corresponds to Figure 1 in this paper.
+The corresponding program is `experiments/vary_lambda.py`.
+
+**How to use**
 ```bash
-python performance.py --dataset <> --n_components <> --each_model_data <> \
-                      --ensemble_labeled_size <> --algorithms <> --n_experiments <> \
-                      --num_fold <> --num_tuning <> --tuning <> \
-                      --labeled_classes <>                   
+python vary_lambda.py --dataset mnist --n_components 5 --n_experiments 5 --seed 42 \
+                      --each_model_data 200 --ensemble_labeled_size 500 \
+                      --labeled_classes 0 1 2 3 4 5 6 7 8 9
 ```
 
 The explanation of the arguments is follow:
-* `dataset`: dataset name  ('mnist','fashion-mnist','kuzushiji-mnist', 'run-or-walk','bank','sensorless','volkert')
+* `dataset`: dataset name  ('mnist','fashion-mnist','kuzushiji-mnist', 'bank','sensorless','volkert')
+* `n_components`: the number of component predictors
+* `n_experiments`: the number of experiments
+* `seed`: random seed
+* `each_model_data`: the number of data to train each component predictor
+* `ensemble_labeled_size`: the number of data to optimize weight parameters of ensemble predictors
+* `labeled_classes`: values of the objective variable to be used as supervised data
+  * if dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
+
+## Weight Parameter Transition and Model Selection-Diversity Balance
+
+This experiment corresponds to Figure 2 in this paper.
+The corresponding program is `experiments/compare_lambda_beta.py`.
+
+**How to use**
+```bash
+python compare_lambda_beta.py --dataset mnist --n_components 5 --n_experiments 1 --seed 42 \
+                              --each_model_data 200 --ensemble_labeled_size 500 \
+                              --algorithms logistic logistic svm svm knn \
+                              --labeled_classes 0 1 2 3 4 5 6 7 8 9
+```
+
+The explanation of the arguments is follow:
+* `dataset`: dataset name  ('mnist','fashion-mnist','kuzushiji-mnist', 'bank','sensorless','volkert')
+* `n_components`: the number of component predictors
+* `n_experiments`: the number of experiments
+* `seed`: random seed
+* `each_model_data`: the number of data to train each component predictor
+* `ensemble_labeled_size`: the number of data to optimize weight parameters of ensemble predictors
+* `labeled_classes`: values of the objective variable to be used as supervised data
+  * if dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
+
+
+## Comparison of Performance Experiment
+
+This experiment corresponds to Figure 3 in this paper.
+The corresponding program is `experiments/performance.py`.
+
+**How to use**
+```bash
+python performance.py --dataset mnist --n_components 5 --each_model_data 200 \
+                      --ensemble_labeled_size 500 \
+                      --algorithms logistic logistic svm svm knn \
+                      --n_experiments 5 \
+                      --num_fold 5 --num_tuning 100 --tuning grid \
+                      --labeled_classes 0 1 2 3 4 5 6 7 8 9                   
+```
+
+The explanation of the arguments is follow:
+* `dataset`: dataset name  ('mnist','fashion-mnist','kuzushiji-mnist', 'bank','sensorless','volkert')
 * `n_components`: the number of component predictors
 * `each_model_data`: the number of data to train each component predictor
 * `ensemble_labeled_size`: the number of data to optimize weight parameters of ensemble predictors
 * `algorithms`: use algorithm names to make component predictor ("logistic", "svm", "knn", "decision_tree", "QDA", "gaussian_process", "gaussian_naive_bayes", "adaboost", "random_forest")
   * the number of agorithm names must be equal `n_components`
-* `num_experiments`: the number of experiments
+* `n_experiments`: the number of experiments
 * `num_fold`: the number of folds of cross-validation
 * `num_tuning`: hyperparameter lambda search count
 * `tuning`: how to tune lambda ('optuna', 'grid')
 * `labeled_classes`: values of the objective variable to be used as supervised data
   * if dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
 
-**Example**
+
+## Apply Oversampling
+
+This experiment corresponds to Figure 4 in this paper.
+The corresponding program is `experiments/oversampling.py`.
+
+**How to use**
 ```bash
-python performance.py --dataset mnist --n_components 5 --each_model_data 200 \
+python oversampling.py --dataset volkert --n_components 5 --each_model_data 200 \
 			--ensemble_labeled_size 500 \
 			--algorithms logistic logistic svm svm knn \
 			--n_experiments 5 \
 			--num_fold 5 --num_tuning 100 --tuning grid \
-			--labeled_classes 0 1 2 3 4 5 6 7 8 9 
+			--minority_rate 0.3 \
+			--labeled_classes 0 1 2 3 4 5 6 7 8 9                
 ```
+
+The explanation of the arguments is follow:
+* `dataset`: dataset name  ('mnist','fashion-mnist','kuzushiji-mnist', 'bank','sensorless','volkert')
+* `n_components`: the number of component predictors
+* `each_model_data`: the number of data to train each component predictor
+* `ensemble_labeled_size`: the number of data to optimize weight parameters of ensemble predictors
+* `algorithms`: use algorithm names to make component predictor ("logistic", "svm", "knn", "decision_tree", "QDA", "gaussian_process", "gaussian_naive_bayes", "adaboost", "random_forest")
+  * the number of agorithm names must be equal `n_components`
+* `n_experiments`: the number of experiments
+* `num_fold`: the number of folds of cross-validation
+* `num_tuning`: hyperparameter lambda search count
+* `tuning`: how to tune lambda ('optuna', 'grid')
+* `labeled_classes`: values of the objective variable to be used as supervised data
+  * if dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
