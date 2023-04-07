@@ -1,7 +1,7 @@
 # balancing_ensemble
 
 ## Dependencies
-scikit-learn==1.0.2
+* scikit-learn 1.0.2
 
 ## Algorithms setting to create component predictors
 The hyperparameter settings of the component predictors used in the experiments are shown below.
@@ -19,6 +19,22 @@ The values not shown are the default values in `scikit-learn 1.0.2`.
 
 
 ## How to execute our experiments
+
+### Directory Structure
+
+```
+balancing_ensemble/
+   ├ data/
+   │   ├ mnist.arff
+   │   ├ ...
+   │
+   ├ experiments/
+       ├ performance.py
+       ├ ...
+```
+
+* Once the program is executed, an output directory is created under balancing_ensemble/ and the results are stored there.
+* Each data must be downloaded from [UCI repository](https://archive.ics.uci.edu/ml/index.php) or [OpenML](https://www.openml.org/).
 
 ### Comparison of Performance Experiment
 
