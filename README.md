@@ -92,6 +92,13 @@ The explanation of the arguments is follow:
 * `labeled_classes`: values of the objective variable to be used as supervised data
   * if dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
 
+**Execution results**
+* The results will be saved in `/balancing_ensemble/output/exp-vary-lambda/`.
+  * The figures of the results will be saved in `/balancing_ensemble/output/exp-vary-lambda/fig/`.
+    * Please see these files.
+  * The log files (.pkl) will be saved in `/balancing_ensemble/output/exp-vary-lambda/log/`.
+    * These files is to make figure later.
+
 ## Weight Parameter Transition and Model Selection-Diversity Balance
 
 This experiment corresponds to Figure 2 in this paper.
@@ -114,6 +121,13 @@ The explanation of the arguments is follow:
 * `ensemble_labeled_size`: the number of data to optimize weight parameters of ensemble predictors
 * `labeled_classes`: values of the objective variable to be used as supervised data
   * if dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
+
+**Execution results**
+* The results will be saved in `/balancing_ensemble/output/exp-compare-lambda-beta/`.
+  * The figures of the results will be saved in `/balancing_ensemble/output/exp-compare-lambda-beta/fig/`.
+    * Please see these files.
+  * The log files (.pkl) will be saved in `/balancing_ensemble/output/exp-compare-lambda-beta/log/`.
+    * These files is to make figure later.
 
 
 ## Comparison of Performance Experiment
@@ -143,7 +157,16 @@ The explanation of the arguments is follow:
 * `num_tuning`: hyperparameter lambda search count
 * `tuning`: how to tune lambda ('optuna', 'grid')
 * `labeled_classes`: values of the objective variable to be used as supervised data
-  * if dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
+  * If dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
+
+**Execution results**
+* The results will be saved in `/balancing_ensemble/output/exp-performance-{datset}-various/`.
+  * `dataset` is equal the argument `dataset` of `experiments/performance.py`.
+    * The log files (.csv, .txt, .pkl) will be saved in `/balancing_ensemble/output/exp-performance-{datsetname}-various/log/`.
+      * Settings and average results of the executed experiment will be saved in `log_{dataset}_various.csv`. 
+      * Settings and average results of component predictors used in the experiment will be saved in `log_{dataset}_various.csv`. 
+      * The results of the experiment, displayed in easy-to-read text, will be saved in `log_various.txt`.
+      * The results of hyperparameter lambda tuning will be saved in `{experiment_settings...}_log.pkl`.
 
 
 ## Apply Oversampling
@@ -175,3 +198,12 @@ The explanation of the arguments is follow:
 * `tuning`: how to tune lambda ('optuna', 'grid')
 * `labeled_classes`: values of the objective variable to be used as supervised data
   * if dataset is 'mnist' that has 10 classes, labeled_classes is '0 1 2 3 4 5 6 7 8 9' 
+
+**Execution results**
+* The results will be saved in `/balancing_ensemble/output/exp-oversampling-{datset}-various/`.
+  * `dataset` is equal the argument `dataset` of `experiments/oversampling.py`.
+    * The log files (.csv, .txt, .pkl) will be saved in `/balancing_ensemble/output/exp-oversampling-{datsetname}-various/log/`.
+      * Settings and average results of the executed experiment will be saved in `log_{dataset}_various.csv`. 
+      * Settings and average results of component predictors used in the experiment will be saved in `log_{dataset}_various.csv`. 
+      * The results of the experiment, displayed in easy-to-read text, will be saved in `log_various.txt`.
+      * The results of hyperparameter lambda tuning will be saved in `{experiment_settings...}_log.pkl`.
