@@ -1,13 +1,20 @@
 # Balancing Selection adn Diversity in Ensemble Learning with Exponential Mixture Model
 
-## Dependencies
+## Requirements
 
+* python 3.9.14
+
+* libaries
 ```
 numpy==1.23.5
 scipy==1.9.3
 pandas==1.5.1
 imbalanced-learn==0.10.1
 scikit-learn==1.0.2
+matplotlib==3.6.2
+seaborn==0.12.1
+optuna==3.1.0
+arff==0.9
 ```
 
 ## Algorithms setting to create component predictors
@@ -43,7 +50,7 @@ balancing_ensemble/
    │   │  └ Sensorless_drive_diagnosis.txt
    │   └ volkert/
    │      └ volkert.arff
-   
+   │
    │
    ├ experiments/
        ├ performance.py
