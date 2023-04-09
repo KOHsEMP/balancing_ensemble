@@ -28,7 +28,7 @@ The values not shown are the default values in `scikit-learn 1.0.2`.
   * n_neighbors is the number of classes of each dataset
 * Gaussian Naive Bayes : `GaussianNB` 
 * Random Forest: `RandomForestClassifier`
-　* the number of decision tree is 100. (It is default value.)
+  * the number of decision tree is 100. (It is default value.)
 
 
 ## Directory Structure
@@ -58,6 +58,7 @@ balancing_ensemble/
 ```
 
 * Once the program is executed, an output directory is created under `balancing_ensemble/output/` and the results are stored there.
+  * if there are not directory `/balancing_ensemble/output`, it is created automatically
 * Each data must be downloaded from [UCI repository](https://archive.ics.uci.edu/ml/index.php) or [OpenML](https://www.openml.org/).
 
 ## Datasets Download Links
