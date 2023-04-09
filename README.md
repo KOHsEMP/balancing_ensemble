@@ -162,11 +162,11 @@ The explanation of the arguments is follow:
 **Execution results**
 * The results will be saved in `/balancing_ensemble/output/exp-performance-{datset}-various/`.
   * `dataset` is equal the argument `dataset` of `experiments/performance.py`.
-    * The log files (.csv, .txt, .pkl) will be saved in `/balancing_ensemble/output/exp-performance-{datsetname}-various/log/`.
-      * Settings and average results of the executed experiment will be saved in `log_{dataset}_various.csv`. 
-      * Settings and average results of component predictors used in the experiment will be saved in `log_{dataset}_various.csv`. 
-      * The results of the experiment, displayed in easy-to-read text, will be saved in `log_various.txt`.
-      * The results of hyperparameter lambda tuning will be saved in `{experiment_settings...}_log.pkl`.
+  * The log files (.csv, .txt, .pkl) will be saved in `/balancing_ensemble/output/exp-performance-{datsetname}-various/log/`.
+    * Settings and average results of the executed experiment will be saved in `log_{dataset}_various.csv`. 
+    * Settings and average results of component predictors used in the experiment will be saved in `log_{dataset}_various.csv`. 
+    * The results of the experiment, displayed in easy-to-read text, will be saved in `log_various.txt`.
+    * The results of hyperparameter lambda tuning will be saved in `{experiment_settings...}_log.pkl`.
 
 
 ## Apply Oversampling
