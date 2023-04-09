@@ -29,6 +29,7 @@ The values not shown are the default values in `scikit-learn 1.0.2`.
   * n_neighbors is the number of classes of each dataset
 * Gaussian Naive Bayes : `GaussianNB` 
 * Random Forest: `RandomForestClassifier`
+　* the number of decision tree is 100. (It is default value.)
 
 
 ## Directory Structure
