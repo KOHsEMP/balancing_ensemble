@@ -4,7 +4,6 @@
 
 * python 3.9.14
 
-* libaries
 ```
 numpy==1.23.5
 scipy==1.9.3
@@ -18,7 +17,7 @@ arff==0.9
 ```
 
 ## Algorithms setting to create component predictors
-The hyperparameter settings of the component predictors used in the experiments are shown below.
+The hyperparameter settings of the component predictors used in this paper are shown below.
 The values not shown are the default values in `scikit-learn 1.0.2`.
 
 * Logistic Regression : `LogisticRegression`
