@@ -95,7 +95,7 @@ class Config:
 
 
     MAIN_PATH = "../"
-    DATA_PATH = "../data" #"../../../opt/data" # server
+    DATA_PATH = "../data" 
     
     seed = 42 # random seed
     num_experiment = 5 # the number of experiments
