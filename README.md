@@ -1,4 +1,4 @@
-# Balancing Selection adn Diversity in Ensemble Learning with Exponential Mixture Model
+# Balancing Selection and Diversity in Ensemble Learning with Exponential Mixture Model
 
 ## Requirements
 
